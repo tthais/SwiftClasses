@@ -14,6 +14,7 @@
 		521467F02339B109004E988B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 521467EF2339B109004E988B /* Assets.xcassets */; };
 		521467F32339B109004E988B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 521467F12339B109004E988B /* LaunchScreen.storyboard */; };
 		521467FB2339B260004E988B /* Filme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521467FA2339B260004E988B /* Filme.swift */; };
+		524512EA233DAE2A0075E4B7 /* DetalhesFilmeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524512E9233DAE2A0075E4B7 /* DetalhesFilmeViewController.swift */; };
 		52FFD331233B130B0026A3CB /* FilmeCelula.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FFD330233B130B0026A3CB /* FilmeCelula.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,7 @@
 		521467F22339B109004E988B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		521467F42339B109004E988B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		521467FA2339B260004E988B /* Filme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filme.swift; sourceTree = "<group>"; };
+		524512E9233DAE2A0075E4B7 /* DetalhesFilmeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetalhesFilmeViewController.swift; sourceTree = "<group>"; };
 		52FFD330233B130B0026A3CB /* FilmeCelula.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmeCelula.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -65,6 +67,7 @@
 				521467EA2339B108004E988B /* ViewController.swift */,
 				521467FA2339B260004E988B /* Filme.swift */,
 				521467EC2339B108004E988B /* Main.storyboard */,
+				524512E9233DAE2A0075E4B7 /* DetalhesFilmeViewController.swift */,
 				52FFD330233B130B0026A3CB /* FilmeCelula.swift */,
 				521467EF2339B109004E988B /* Assets.xcassets */,
 				521467F12339B109004E988B /* LaunchScreen.storyboard */,
@@ -148,6 +151,7 @@
 				52FFD331233B130B0026A3CB /* FilmeCelula.swift in Sources */,
 				521467E72339B108004E988B /* AppDelegate.swift in Sources */,
 				521467E92339B108004E988B /* SceneDelegate.swift in Sources */,
+				524512EA233DAE2A0075E4B7 /* DetalhesFilmeViewController.swift in Sources */,
 				521467FB2339B260004E988B /* Filme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -33,10 +33,19 @@ class ViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
+        /*Há duas maneiras de arredondar uma imagem ou botão, pelo Main.Storyboard e por código.
+        //Classe (layer)
+        //clipsToBounds: Serve para cortar as bordas
+        //Outro exemplo de código:  celula.fotoImageView.layer.cornerRadius = 42
+                                    celula.fotoImageView.clipsToBounds = true*/
     }
-    /*Há duas maneiras de arredondar uma imagem ou botão, pelo Main.Storyboard e por código.
-    //Classe (layer)
-    //clipsToBounds: Serve para cortar as bordas
-    //Outro exemplo de código:  celula.fotoImageView.layer.cornerRadius = 42
-                                celula.fotoImageView.clipsToBounds = true*/
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "detalheFilme", let indexPath = tableView.indexPathForSelectedRow {
+            let filmeSelecionado = self.filmes[ indexPath.row ]
+            let viewcontrollerDestino = segue.destination as! DetalhesFilmeViewController
+            viewcontrollerDestino.filme = filmeSelecionado
+            
+        }
+    }
 }
