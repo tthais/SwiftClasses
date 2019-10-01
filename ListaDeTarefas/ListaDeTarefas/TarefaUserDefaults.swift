@@ -8,14 +8,28 @@
 
 import UIKit
 
-class TarefaUserDefaults{
+class TarefaUserDefaults {
     
-    func salvarTarefas() {
+    // MARK: - Properties
+    let defaults = UserDefaults.standard
+    let chaveListaTarefa = "listaTarefa"
+    
+    // MARK: - Internal Methods
+    func salvarTarefas(tarefa: String) {
         
+        // recupera tarefas
+        var array = listarTarefas()
+        
+        // adicionar
+        array.append(tarefa)
+        
+        defaults.set(array, forKey: chaveListaTarefa)
     }
     
-    func listarTarefas() {
-        
+    func listarTarefas() -> [String] {
+        let dados = defaults.object(forKey: chaveListaTarefa) as? [String] ?? [String]()
+        print(" dados: \(dados)")
+        return dados
     }
     
     func removerTarefa() {
