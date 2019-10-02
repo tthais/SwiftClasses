@@ -9,30 +9,38 @@
 import UIKit
 
 class TarefaUserDefaults {
-    
-    // MARK: - Properties
-    let defaults = UserDefaults.standard
-    let chaveListaTarefa = "listaTarefa"
-    
-    // MARK: - Internal Methods
-    func salvarTarefas(tarefa: String) {
-        
-        // recupera tarefas
-        var array = listarTarefas()
-        
-        // adicionar
-        array.append(tarefa)
-        
-        defaults.set(array, forKey: chaveListaTarefa)
-    }
-    
-    func listarTarefas() -> [String] {
-        let dados = defaults.object(forKey: chaveListaTarefa) as? [String] ?? [String]()
-        print(" dados: \(dados)")
-        return dados
-    }
-    
-    func removerTarefa() {
-        
-    }
+
+  // MARK: - Properties
+  let defaults = UserDefaults.standard
+  let chaveListaTarefa = "listaTarefa"
+  var tarefas: [String] = []
+
+  // MARK: - Internal Methods
+  func salvarTarefas(tarefa: String) {
+
+    // recupera tarefas
+    tarefas = listarTarefas()
+
+    // adicionar
+    tarefas.append(tarefa)
+
+    defaults.set(tarefas, forKey: chaveListaTarefa)
+  }
+
+  func listarTarefas() -> [String] {
+    let dados = defaults.object(forKey: chaveListaTarefa) as? [String] ?? [String]()
+    print(" dados: \(dados)")
+    return dados
+  }
+
+  func removerTarefa(indice: Int) {
+
+    //recupera tarefas
+    tarefas = listarTarefas()
+
+    tarefas.remove(at: indice)
+
+    defaults.set(tarefas, forKey: chaveListaTarefa)
+
+  }
 }
