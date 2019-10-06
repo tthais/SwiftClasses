@@ -8,14 +8,24 @@
 
 import MapKit
 
-class ViewController: UIViewController, MKMapViewDelegate {
+class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
   @IBOutlet weak var mapa: MKMapView!
+  var gerenciadorLocal = CLLocationManager()
+
+
 
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    let latitude: CLLocationDegrees = -23.586974
+    gerenciadorLocal.delegate = self
+    gerenciadorLocal.desiredAccuracy = kCLLocationAccuracyBest
+    gerenciadorLocal.requestWhenInUseAuthorization()
+    gerenciadorLocal.startUpdatingLocation()
+
+    
+
+   /* let latitude: CLLocationDegrees = -23.586974
     let longitude: CLLocationDegrees = -46.657355
 
     let deltaLatitude: CLLocationDegrees = 0.01
@@ -29,8 +39,16 @@ class ViewController: UIViewController, MKMapViewDelegate {
 
     mapa.setRegion(regiao, animated: true)
 
+    let anotacao = MKPointAnnotation()
+
+    //configurar
+    anotacao.coordinate = localizacao
+    anotacao.title = "Parque do Ibirapuera"
+    anotacao.subtitle = "Planetario"
+
+    mapa.addAnnotation(anotacao)*/
+
   }
 
 
 }
-
