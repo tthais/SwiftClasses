@@ -25,29 +25,52 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 
     
 
-   /* let latitude: CLLocationDegrees = -23.586974
-    let longitude: CLLocationDegrees = -46.657355
+   /*
 
-    let deltaLatitude: CLLocationDegrees = 0.01
-    let deltaLongitude: CLLocationDegrees = 0.01
+     let latitude: CLLocationDegrees = -23.586974
+     let longitude: CLLocationDegrees = -46.657355
+
+     let deltaLatitude: CLLocationDegrees = 0.01
+     let deltaLongitude: CLLocationDegrees = 0.01
+
+     let localizacao = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+     let areaVisualizacao = MKCoordinateSpan(latitudeDelta: deltaLatitude, longitudeDelta: deltaLongitude)
+
+     let regiao = MKCoordinateRegion(center: localizacao, span: areaVisualizacao)
+
+
+     mapa.setRegion(regiao, animated: true)
+
+     let anotacao = MKPointAnnotation()
+
+     //configurar
+     anotacao.coordinate = localizacao
+     anotacao.title = "Parque do Ibirapuera"
+     anotacao.subtitle = "Planetario"
+
+     mapa.addAnnotation(anotacao)*/
+
+  }
+
+  func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+
+    let localizacaoUsuario: CLLocation = locations.last!
+
+    //monta exibicao do mapa
+    let latitude: CLLocationDegrees = localizacaoUsuario.coordinate.latitude
+    let longitude: CLLocationDegrees = localizacaoUsuario.coordinate.longitude
+
+    let deltaLatitude: CLLocationDegrees = 0.001
+    let deltaLongitude: CLLocationDegrees = 0.001
 
     let localizacao = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     let areaVisualizacao = MKCoordinateSpan(latitudeDelta: deltaLatitude, longitudeDelta: deltaLongitude)
 
     let regiao = MKCoordinateRegion(center: localizacao, span: areaVisualizacao)
 
-
     mapa.setRegion(regiao, animated: true)
 
-    let anotacao = MKPointAnnotation()
-
-    //configurar
-    anotacao.coordinate = localizacao
-    anotacao.title = "Parque do Ibirapuera"
-    anotacao.subtitle = "Planetario"
-
-    mapa.addAnnotation(anotacao)*/
-
+    
   }
 
 
