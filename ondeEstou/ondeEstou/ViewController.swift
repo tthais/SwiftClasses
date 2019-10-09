@@ -27,14 +27,26 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
   }
 
   func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-
     guard let localizacaoUsuario = locations.last else { return }
 
-    velocidadeLabel.text = localizacaoUsuario.speed.description
-    latitudeLabel.text = "Latitude: \(localizacaoUsuario.coordinate.latitude)"
-    longitudeLabel.text = "longitude: \(localizacaoUsuario.coordinate.longitude)"
-    enderecoLabel.text = "Endereço: \(localizacaoUsuario.altitude)"
+    let areaExibicao = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+    let regiao = MKCoordinateRegion(center: localizacaoUsuario.coordinate, span: areaExibicao)
+    let speed = localizacaoUsuario.speed
 
+    CLGeocoder().reverseGeocodeLocation(localizacaoUsuario) { local, erro in
+      guard let endereco = local?.first else { return }
+      self.enderecoLabel.text = """
+      \(endereco.thoroughfare ?? ""), \(endereco.subThoroughfare ?? "") \(endereco.subLocality ?? "")
+      \(endereco.locality ?? "") - \(endereco.administrativeArea ?? "")
+      \(endereco.country ?? "")
+      """
+    }
+
+    velocidadeLabel.text = speed > 0 ? speed.description : "0.0"
+    latitudeLabel.text = "Latitude: \(localizacaoUsuario.coordinate.latitude)"
+    longitudeLabel.text = "Longitude: \(localizacaoUsuario.coordinate.longitude)"
+
+    mapa.setRegion(regiao, animated: true)
   }
 
   func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
