@@ -13,6 +13,7 @@
 		1BEAA1A4234ED6A4009F87B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BEAA1A2234ED6A4009F87B4 /* Main.storyboard */; };
 		1BEAA1A6234ED6A6009F87B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BEAA1A5234ED6A6009F87B4 /* Assets.xcassets */; };
 		1BEAA1A9234ED6A6009F87B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BEAA1A7234ED6A6009F87B4 /* LaunchScreen.storyboard */; };
+		1BFB6A7C2350213B00D37C03 /* LocaisViagensViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFB6A7B2350213B00D37C03 /* LocaisViagensViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		1BEAA1A5234ED6A6009F87B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1BEAA1A8234ED6A6009F87B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1BEAA1AA234ED6A6009F87B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1BFB6A7B2350213B00D37C03 /* LocaisViagensViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaisViagensViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				1BEAA19C234ED6A4009F87B4 /* AppDelegate.swift */,
 				1BEAA19E234ED6A4009F87B4 /* SceneDelegate.swift */,
 				1BEAA1A0234ED6A4009F87B4 /* ViewController.swift */,
+				1BFB6A7B2350213B00D37C03 /* LocaisViagensViewController.swift */,
 				1BEAA1A2234ED6A4009F87B4 /* Main.storyboard */,
 				1BEAA1A5234ED6A6009F87B4 /* Assets.xcassets */,
 				1BEAA1A7234ED6A6009F87B4 /* LaunchScreen.storyboard */,
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BEAA1A1234ED6A4009F87B4 /* ViewController.swift in Sources */,
+				1BFB6A7C2350213B00D37C03 /* LocaisViagensViewController.swift in Sources */,
 				1BEAA19D234ED6A4009F87B4 /* AppDelegate.swift in Sources */,
 				1BEAA19F234ED6A4009F87B4 /* SceneDelegate.swift in Sources */,
 			);

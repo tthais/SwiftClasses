@@ -6,28 +6,48 @@
 //  Copyright © 2019 thejohnlima. All rights reserved.
 //
 
-import UIKit
+import MapKit
 
-class ViewController: UIViewController, UITableViewDataSource {
+class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
+  @IBOutlet weak var mapa: MKMapView!
 
-   var dados = ["Sociedade Esportiva Palmeiras", "Apple Inc.", "Eiffel Tower", "Colosseum"]
+  var gerenciadorLocalizacao = CLLocationManager()
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view.
+
+    configuraGerenciadorLocalizacao()
   }
 
-  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return dados.count
-   }
+  func configuraGerenciadorLocalizacao() {
+    gerenciadorLocalizacao.delegate = self
+    gerenciadorLocalizacao.desiredAccuracy = kCLLocationAccuracyBest
+    gerenciadorLocalizacao.requestWhenInUseAuthorization()
+    gerenciadorLocalizacao.startUpdatingLocation()
+  }
+  
+  func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+    if status != .authorizedWhenInUse {
+      let alertaController = UIAlertController(
+        title: "Permissao da localização",
+        message: "Necessário permisão para acesso a localização! Por favor habilite.",
+        preferredStyle: .alert
+      )
 
-   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "viagens", for: indexPath)
-    cell.textLabel?.text = dados[indexPath.row]
-    return cell
+      let acaoConfiguracoes = UIAlertAction(title: "Abrir configuraço", style: .default, handler: { acao in
+        if let configuracoes = URL(string: UIApplication.openSettingsURLString){
+          UIApplication.shared.open(configuracoes)
+        }
+      })
 
-   }
+      let acaocancelar = UIAlertAction(title: "Cancelar", style: .cancel)
 
+      alertaController.addAction(acaoConfiguracoes)
+      alertaController.addAction(acaocancelar)
+
+      present(alertaController, animated: true)
+    }
+  }
 }
 

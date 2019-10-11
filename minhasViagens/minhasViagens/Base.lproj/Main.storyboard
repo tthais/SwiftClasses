@@ -10,7 +10,7 @@
         <!--Minhas Viagens-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="minhasViagens" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LocaisViagensViewController" customModule="minhasViagens" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -26,6 +26,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" playsSound="YES"/>
+                                        </accessibility>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -59,12 +62,15 @@
         <!--Mapa-->
         <scene sceneID="eRb-yH-MQa">
             <objects>
-                <viewController id="g5H-ve-EKa" sceneMemberID="viewController">
+                <viewController id="g5H-ve-EKa" customClass="ViewController" customModule="minhasViagens" customModuleProvider="target" sceneMemberID="viewController">
                     <mapView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="rm6-3w-uPv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </mapView>
                     <navigationItem key="navigationItem" title="Mapa" id="gl8-8T-8Kz"/>
+                    <connections>
+                        <outlet property="mapa" destination="rm6-3w-uPv" id="EWP-hJ-Cmx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vbo-cG-qXM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
