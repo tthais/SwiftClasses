@@ -2,8 +2,8 @@
 //  SceneDelegate.swift
 //  minhasViagens
 //
-//  Created by John Lima on 10/10/19.
-//  Copyright © 2019 thejohnlima. All rights reserved.
+//  Created by Thais Costa on 10/10/19.
+//  Copyright © 2019 tthais. All rights reserved.
 //
 
 import UIKit
