@@ -46,6 +46,16 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         anotacao.subtitle = endereco.subLocality
 
         self.mapa.addAnnotation(anotacao)
+        
+        let local = endereco.locality ?? ""
+
+        let viagem: [String: Any] = [
+          "local": local,
+          "latitude": "\(coordenadas.latitude)",
+          "longitude": "\(coordenadas.longitude)"
+        ]
+
+        ArmazenamentoDados().salvar(viagem: viagem)
       }
     }
   }
