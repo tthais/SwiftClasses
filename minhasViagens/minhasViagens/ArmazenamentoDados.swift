@@ -26,7 +26,9 @@ class ArmazenamentoDados {
     return UserDefaults.standard.array(forKey: chaveArmazenamento) as? [Dict] ?? []
   }
 
-  func removerViagem()  {
-
+  func removerViagem(indice: Int)  {
+    viagens = listarViagens()
+    viagens.remove(at: indice)
+    UserDefaults.standard.set(viagens, forKey: chaveArmazenamento)
   }
 }

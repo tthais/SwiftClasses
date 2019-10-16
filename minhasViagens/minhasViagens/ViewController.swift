@@ -47,7 +47,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 
         self.mapa.addAnnotation(anotacao)
         
-        let local = endereco.locality ?? ""
+        let local = endereco.locality ?? endereco.country ?? "-"
 
         let viagem: [String: Any] = [
           "local": local,
