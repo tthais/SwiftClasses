@@ -50,7 +50,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="0U5-U6-Jbq">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="g5H-ve-EKa" kind="show" identifier="mapa" id="6Qn-yP-Y35"/>
+                                <segue destination="g5H-ve-EKa" kind="show" identifier="verLocal" id="6Qn-yP-Y35"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

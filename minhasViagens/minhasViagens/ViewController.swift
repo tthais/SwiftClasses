@@ -13,11 +13,19 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
   @IBOutlet weak var mapa: MKMapView!
 
   var gerenciadorLocalizacao = CLLocationManager()
+  var local: ArmazenamentoDados.Dict = [:]
+  var indiceSelecionado: Int?
 
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    configuraGerenciadorLocalizacao()
+
+
+    if indiceSelecionado != nil {
+      adiciona(viagem: local)
+    } else { 
+      configuraGerenciadorLocalizacao()
+    }
 
     //Quando o Usuário pressionar no  mapa, irá criar um localizador: reconhecer toques na tela
 
@@ -25,6 +33,32 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     reconhecerGesto.minimumPressDuration = 1
 
     mapa.addGestureRecognizer(reconhecerGesto)
+  }
+
+  func adiciona(viagem: ArmazenamentoDados.Dict) {
+    let local = viagem["local"] as? String
+    let latitude = Double(viagem["latitude"] as? String ?? "0")
+    let longitude = Double(viagem["longitude"] as? String ?? "0")
+
+    guard let lat = latitude, let lon = longitude else { return }
+
+    //Exibe anotação com os dados de endereço
+    let anotacao = MKPointAnnotation()
+    anotacao.coordinate.latitude = lat
+    anotacao.coordinate.longitude = lon
+    anotacao.title = local
+
+    mapa.addAnnotation(anotacao)
+    mapa.mapType = .satellite
+
+    configura(regiao: anotacao.coordinate)
+  }
+
+  func configura(regiao: CLLocationCoordinate2D) {
+    let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+    let regiao = MKCoordinateRegion(center: regiao, span: span)
+
+    mapa.setRegion(regiao, animated: true)
   }
 
   @objc func marcar(gesture: UIGestureRecognizer) {
@@ -39,14 +73,6 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
       CLGeocoder().reverseGeocodeLocation(location) { local, error in
         guard let endereco = local?.first else { return }
 
-        //Exibe anotação com os dados de endereço
-        let anotacao = MKPointAnnotation()
-        anotacao.coordinate = coordenadas
-        anotacao.title = endereco.locality
-        anotacao.subtitle = endereco.subLocality
-
-        self.mapa.addAnnotation(anotacao)
-        
         let local = endereco.locality ?? endereco.country ?? "-"
 
         let viagem: [String: Any] = [
@@ -56,6 +82,8 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         ]
 
         ArmazenamentoDados().salvar(viagem: viagem)
+
+        self.adiciona(viagem: viagem)
       }
     }
   }
@@ -66,7 +94,12 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     gerenciadorLocalizacao.requestWhenInUseAuthorization()
     gerenciadorLocalizacao.startUpdatingLocation()
   }
-  
+
+  func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    let local = locations.last!
+    configura(regiao: local.coordinate)
+  }
+
   func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
     if status != .authorizedWhenInUse {
       let alertaController = UIAlertController(

@@ -8,11 +8,12 @@
 
 import UIKit
 
-class LocaisViagensViewController: UIViewController, UITableViewDataSource {
+class LocaisViagensViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
   @IBOutlet weak var tableView: UITableView!
 
   var locaisViagens: [ArmazenamentoDados.Dict] = []
+
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
@@ -40,6 +41,19 @@ class LocaisViagensViewController: UIViewController, UITableViewDataSource {
     if editingStyle == .delete {
       ArmazenamentoDados().removerViagem(indice: indexPath.row)
       atualizar()
+    }
+  }
+
+  //função para abrir o mapa a partir da lista de lugares.
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    performSegue(withIdentifier: "verLocal", sender: indexPath.row)
+  }
+
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "verLocal", let indiceRecuperado = sender as? Int {
+      let destino = segue.destination as? ViewController
+      destino?.local = locaisViagens[indiceRecuperado]
+      destino?.indiceSelecionado = indiceRecuperado
     }
   }
 }
