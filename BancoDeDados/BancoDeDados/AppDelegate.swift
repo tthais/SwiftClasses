@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  BancoDeDados
 //
-//  Created by John Lima on 19/10/19.
+//  Created by Thais Costa on 19/10/19.
 //  Copyright © 2019 tthais. All rights reserved.
 //
 
