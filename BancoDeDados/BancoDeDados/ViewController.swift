@@ -73,10 +73,10 @@ class ViewController: UIViewController {
 
     //Configurar produto
 
-    produto.setValue("carro", forKey: "nome")
-    produto.setValue("quatro portas", forKey: "descricao")
-    produto.setValue("vermelho", forKey: "cor")
-    produto.setValue(35.50, forKey: "preco")
+    produto.setValue("skate", forKey: "nome")
+    produto.setValue("tres rodas", forKey: "descricao")
+    produto.setValue("personalizado", forKey: "cor")
+    produto.setValue(350.00, forKey: "preco")
 
     do {
     try context.save()
@@ -91,6 +91,20 @@ class ViewController: UIViewController {
     //Exibindo os produtos salvos.
     let requisicao = NSFetchRequest<NSFetchRequestResult>(entityName: "Produto")
 
+    //Ordenar de A-Z
+    let ordenacaoAZ = NSSortDescriptor(key: "nome", ascending: true)
+
+    //Ordenar de Z-A
+    let ordenacaoZA = NSSortDescriptor(key: "preco", ascending: false)
+
+    //Aplicar filtros
+    // [c] - Case insensitive, significa não diferenciar letras maiúsculas de minuscúlas
+    let predicate = NSPredicate(format: "nome contains [c] %@", "Bic")
+
+    //Aplicar filtros a requisicao
+    requisicao.sortDescriptors = [ordenacaoAZ, ordenacaoZA]
+    requisicao.predicate = predicate
+
     do {
       let produtos = try context.fetch(requisicao)
 
@@ -102,10 +116,12 @@ class ViewController: UIViewController {
             let corProduto = (produto as AnyObject).value(forKey: "cor"),
             let precoProduto = (produto as AnyObject).value(forKey: "preco") {
 
+            print("-----------------------------")
             print(nomeProduto)
             print(descricaoProduto)
             print(corProduto)
             print("R$ \(precoProduto)")
+            print("-----------------------------")
 
           }
         }
