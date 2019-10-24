@@ -13,80 +13,57 @@ class ViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view.
 
-    //Configuracoes iniciais para utilizar o core Data
+    listarOuAtualizarProdutos()
+  }
 
+  /// Como salvar dados do usuário utilizando Core data
+  func salvarUsuario() {
+    // Configuracoes iniciais para utilizar o core Data
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     let context = appDelegate.persistentContainer.viewContext
 
-    /*
-     //Como salvar dados utilizando Core data
+    let usuario = NSEntityDescription.insertNewObject(forEntityName: "Usuarios", into: context)
 
-     let usuario = NSEntityDescription.insertNewObject(forEntityName: "Usuarios", into: context)
-
-     //Configurar objeto
-
-     usuario.setValue("thaislima", forKey: "loginUsuario")
-     usuario.setValue("senha123", forKey: "senha")
-     usuario.setValue("vania", forKey: "nome")
-     usuario.setValue(35, forKey: "idade")
-
-     do {
-     try context.save()
-     print("Dados salvos com sucesso!")
-
-     } catch {
-     print("Erro ao salvar os dados.")
-
-     }
-     */
-    /*
-    //Como recuperar dados utilizando o Core Data:
-
-    let requisicao = NSFetchRequest<NSFetchRequestResult>(entityName: "Usuarios")
+    // Configurar objeto
+    usuario.setValue("thaislima", forKey: "loginUsuario")
+    usuario.setValue("senha123", forKey: "senha")
+    usuario.setValue("vania", forKey: "nome")
+    usuario.setValue(35, forKey: "idade")
 
     do {
-      let usuarios = try context.fetch(requisicao)
-
-      //Verifica se existe usuarios:
-      if usuarios.count > 0 {
-        for usuario in usuarios {
-          if let nomeUsuario = (usuario as AnyObject).value(forKey: "nome") {
-            print(nomeUsuario)
-          }
-        }
-      } else {
-        print("Nenhum usuário encontrado!")
-      }
+      try context.save()
+      print("Dados salvos com sucesso!")
     } catch {
-      print("Erro ao recuperar dados!")
+      print("Erro ao salvar os dados.")
     }
-    */
+  }
 
-    //Desafio! Criar uma entidade chamada Produtos. Colocar os atributos nome, cor e descrição do produto com preço e criar a estrutura para salvar os dados do produto e exibir os produtos salvos.
-
-    /*
-    //Salvando produto:
-
+  /// Como salvar dados do produto utilizando Core data
+  func salvarProduto() {
+    // Configuracoes iniciais para utilizar o core Data
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let context = appDelegate.persistentContainer.viewContext
     let produto = NSEntityDescription.insertNewObject(forEntityName: "Produto", into: context)
 
     //Configurar produto
-
     produto.setValue("skate", forKey: "nome")
     produto.setValue("tres rodas", forKey: "descricao")
     produto.setValue("personalizado", forKey: "cor")
     produto.setValue(350.00, forKey: "preco")
 
     do {
-    try context.save()
-    print("Dados salvos com sucesso!")
-
+      try context.save()
+      print("Dados salvos com sucesso!")
     } catch {
-    print("Erro ao salvar os dados.")
-
+      print("Erro ao salvar os dados.")
     }
-    */
+  }
+
+  /// Como salvar dados do produto utilizando Core data
+  func listarOuAtualizarProdutos() {
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let context = appDelegate.persistentContainer.viewContext
 
     //Exibindo os produtos salvos.
     let requisicao = NSFetchRequest<NSFetchRequestResult>(entityName: "Produto")
@@ -99,11 +76,11 @@ class ViewController: UIViewController {
 
     //Aplicar filtros
     // [c] - Case insensitive, significa não diferenciar letras maiúsculas de minuscúlas
-    let predicate = NSPredicate(format: "nome contains [c] %@", "Bic")
+   // let predicate = NSPredicate(format: "nome contains [c] %@", "Bic")
 
     //Aplicar filtros a requisicao
     requisicao.sortDescriptors = [ordenacaoAZ, ordenacaoZA]
-    requisicao.predicate = predicate
+   // requisicao.predicate = predicate
 
     do {
       let produtos = try context.fetch(requisicao)
@@ -111,10 +88,14 @@ class ViewController: UIViewController {
       //Verifica se existe produtos:
       if produtos.count > 0 {
         for produto in produtos {
-          if let nomeProduto = (produto as AnyObject).value(forKey: "nome"),
-            let descricaoProduto = (produto as AnyObject).value(forKey: "descricao"),
-            let corProduto = (produto as AnyObject).value(forKey: "cor"),
-            let precoProduto = (produto as AnyObject).value(forKey: "preco") {
+
+          let produto = produto as AnyObject
+
+
+          if let nomeProduto = (produto).value(forKey: "nome"),
+            let descricaoProduto = (produto).value(forKey: "descricao"),
+            let corProduto = (produto).value(forKey: "cor"),
+            let precoProduto = (produto).value(forKey: "preco") {
 
             print("-----------------------------")
             print(nomeProduto)
@@ -122,7 +103,18 @@ class ViewController: UIViewController {
             print(corProduto)
             print("R$ \(precoProduto)")
             print("-----------------------------")
+            /*
+            //atualizar
+            produto.setValue(199, forKey: "preco")
+            produto.setValue("Iphone 5S", forKey: "nome")
 
+            do {
+              try context.save()
+              print("Sucesso ao atualizar dados!!")
+            } catch {
+              print("Erro ao atualizar dados!!")
+            }
+            */
           }
         }
       } else {
@@ -131,7 +123,5 @@ class ViewController: UIViewController {
     } catch {
       print("Erro ao recuperar dados!")
     }
-
   }
-  
 }
