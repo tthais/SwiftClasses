@@ -15,6 +15,8 @@ class ViewController: UIViewController {
     super.viewDidLoad()
 
     listarOuAtualizarProdutos()
+
+//    salvarProduto()
   }
 
   /// Como salvar dados do usuário utilizando Core data
@@ -47,10 +49,10 @@ class ViewController: UIViewController {
     let produto = NSEntityDescription.insertNewObject(forEntityName: "Produto", into: context)
 
     //Configurar produto
-    produto.setValue("skate", forKey: "nome")
-    produto.setValue("tres rodas", forKey: "descricao")
-    produto.setValue("personalizado", forKey: "cor")
-    produto.setValue(350.00, forKey: "preco")
+    produto.setValue("iPhone 11 Pro", forKey: "nome")
+    produto.setValue("256gb", forKey: "descricao")
+    produto.setValue("Branco", forKey: "cor")
+    produto.setValue(1149.00, forKey: "preco")
 
     do {
       try context.save()
@@ -76,11 +78,11 @@ class ViewController: UIViewController {
 
     //Aplicar filtros
     // [c] - Case insensitive, significa não diferenciar letras maiúsculas de minuscúlas
-   // let predicate = NSPredicate(format: "nome contains [c] %@", "Bic")
+    //let predicate = NSPredicate(format: "nome contains [c] %@", "Air pods")
 
     //Aplicar filtros a requisicao
     requisicao.sortDescriptors = [ordenacaoAZ, ordenacaoZA]
-   // requisicao.predicate = predicate
+    //requisicao.predicate = predicate
 
     do {
       let produtos = try context.fetch(requisicao)
@@ -103,16 +105,28 @@ class ViewController: UIViewController {
             print(corProduto)
             print("R$ \(precoProduto)")
             print("-----------------------------")
-            /*
-            //atualizar
-            produto.setValue(199, forKey: "preco")
-            produto.setValue("Iphone 5S", forKey: "nome")
 
+            /*
+             //atualizar
+             produto.setValue(199, forKey: "preco")
+             produto.setValue("Iphone 5S", forKey: "nome")
+
+             do {
+             try context.save()
+             print("Sucesso ao atualizar dados!!")
+             } catch {
+             print("Erro ao atualizar dados!!")
+             }
+             */
+
+            /*
+            //deletar
+            context.delete(produto as! NSManagedObject)
             do {
               try context.save()
-              print("Sucesso ao atualizar dados!!")
+              print("Dados apagados com sucesso!")
             } catch {
-              print("Erro ao atualizar dados!!")
+              print("Erro ao apagar os dados.")
             }
             */
           }
