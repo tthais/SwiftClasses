@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  NotasDiarias
 //
-//  Created by John Lima on 27/10/19.
+//  Created by Thais Costa on 27/10/19.
 //  Copyright © 2019 tthais. All rights reserved.
 //
 

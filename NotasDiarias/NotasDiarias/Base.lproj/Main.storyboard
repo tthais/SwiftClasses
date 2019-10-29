@@ -71,7 +71,7 @@
         <!--Adicionar-->
         <scene sceneID="qif-sV-Arq">
             <objects>
-                <viewController id="LHM-QN-jaH" sceneMemberID="viewController">
+                <viewController id="LHM-QN-jaH" customClass="AnotacaoViewController" customModule="NotasDiarias" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kmT-X0-DqG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -97,8 +97,14 @@
                     <navigationItem key="navigationItem" title="Adicionar" id="hZJ-bs-bqJ">
                         <barButtonItem key="rightBarButtonItem" title="Salvar" id="KaE-QM-IvW">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="salvarAnotacao:" destination="LHM-QN-jaH" id="aeb-Fm-Rl2"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="texto" destination="2K1-Un-exB" id="2Ko-fy-XZQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="omh-7n-D68" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

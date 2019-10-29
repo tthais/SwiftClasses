@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B68D3F02367DF2500F3E0A4 /* ListaAnotacaoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B68D3EF2367DF2500F3E0A4 /* ListaAnotacaoViewController.swift */; };
 		1BD8CA1523668E1C0033A4F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD8CA1423668E1C0033A4F9 /* AppDelegate.swift */; };
 		1BD8CA1723668E1C0033A4F9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD8CA1623668E1C0033A4F9 /* SceneDelegate.swift */; };
-		1BD8CA1923668E1C0033A4F9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD8CA1823668E1C0033A4F9 /* ViewController.swift */; };
+		1BD8CA1923668E1C0033A4F9 /* AnotacaoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD8CA1823668E1C0033A4F9 /* AnotacaoViewController.swift */; };
 		1BD8CA1C23668E1C0033A4F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BD8CA1A23668E1C0033A4F9 /* Main.storyboard */; };
 		1BD8CA1F23668E1C0033A4F9 /* NotasDiarias.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1BD8CA1D23668E1C0033A4F9 /* NotasDiarias.xcdatamodeld */; };
 		1BD8CA2123668E200033A4F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BD8CA2023668E200033A4F9 /* Assets.xcassets */; };
@@ -17,10 +18,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B68D3EF2367DF2500F3E0A4 /* ListaAnotacaoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaAnotacaoViewController.swift; sourceTree = "<group>"; };
 		1BD8CA1123668E1C0033A4F9 /* NotasDiarias.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotasDiarias.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BD8CA1423668E1C0033A4F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1BD8CA1623668E1C0033A4F9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1BD8CA1823668E1C0033A4F9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1BD8CA1823668E1C0033A4F9 /* AnotacaoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotacaoViewController.swift; sourceTree = "<group>"; };
 		1BD8CA1B23668E1C0033A4F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1BD8CA1E23668E1C0033A4F9 /* NotasDiarias.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NotasDiarias.xcdatamodel; sourceTree = "<group>"; };
 		1BD8CA2023668E200033A4F9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -60,7 +62,8 @@
 			children = (
 				1BD8CA1423668E1C0033A4F9 /* AppDelegate.swift */,
 				1BD8CA1623668E1C0033A4F9 /* SceneDelegate.swift */,
-				1BD8CA1823668E1C0033A4F9 /* ViewController.swift */,
+				1BD8CA1823668E1C0033A4F9 /* AnotacaoViewController.swift */,
+				1B68D3EF2367DF2500F3E0A4 /* ListaAnotacaoViewController.swift */,
 				1BD8CA1A23668E1C0033A4F9 /* Main.storyboard */,
 				1BD8CA2023668E200033A4F9 /* Assets.xcassets */,
 				1BD8CA2223668E200033A4F9 /* LaunchScreen.storyboard */,
@@ -141,7 +144,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1BD8CA1923668E1C0033A4F9 /* ViewController.swift in Sources */,
+				1B68D3F02367DF2500F3E0A4 /* ListaAnotacaoViewController.swift in Sources */,
+				1BD8CA1923668E1C0033A4F9 /* AnotacaoViewController.swift in Sources */,
 				1BD8CA1523668E1C0033A4F9 /* AppDelegate.swift in Sources */,
 				1BD8CA1723668E1C0033A4F9 /* SceneDelegate.swift in Sources */,
 				1BD8CA1F23668E1C0033A4F9 /* NotasDiarias.xcdatamodeld in Sources */,
