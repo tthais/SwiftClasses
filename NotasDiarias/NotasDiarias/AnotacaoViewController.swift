@@ -12,8 +12,8 @@ import CoreData
 class AnotacaoViewController: UIViewController {
 
   @IBOutlet weak var texto: UITextView!
-  
   var gerenciadorObjetos: NSManagedObjectContext!
+  var anotacao: NSManagedObject!
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -24,14 +24,31 @@ class AnotacaoViewController: UIViewController {
 
     //Abrir automaticamente o teclado
     self.texto.becomeFirstResponder()
-    self.texto.text = ""
+
+    if anotacao != nil {//Atualizar
+
+      navigationItem.title = "Atualizar"
+
+      self.texto.text = anotacao.value(forKey: "texto") as? String
+
+    }else{//salvar
+      self.texto.text = ""
+
+      navigationItem.title = "Adcionar"
+    }
+
   }
 
   @IBAction func salvarAnotacao(_ sender: Any){
-    self.salvar()
+    if anotacao != nil { //Atualizar
+      atualizar()
+      navigationItem.title = "Atualizar"
+    } else { //salvar
+      salvar()
+    }
 
     //Retorno para tela inicial
-    self.navigationController?.popViewController(animated: true)
+    navigationController?.popViewController(animated: true)
   }
 
   func salvar(){
@@ -48,5 +65,19 @@ class AnotacaoViewController: UIViewController {
     } catch let erro as NSError {
       print("Erro ao salvar anotacao Erro: \(erro.description)")
     }
+  }
+
+  func atualizar() {
+
+    anotacao.setValue(self.texto.text, forKey: "texto")
+    anotacao.setValue( NSDate(), forKey: "data")
+
+    do {
+      try gerenciadorObjetos.save()
+      print("Sucesso ao Atualizar")
+    } catch let erro as NSError {
+      print("Erro ao Atualizar Anotação Erro: \(erro.description)")
+    }
+
   }
 }

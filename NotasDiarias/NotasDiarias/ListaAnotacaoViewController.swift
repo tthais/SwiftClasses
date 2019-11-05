@@ -44,7 +44,7 @@ class ListaAnotacaoViewController: UIViewController, UITableViewDataSource, UITa
     var data: String? {
       if let date = anotacao.value(forKey: "data") as? Date {
         let formatador = DateFormatter()
-        formatador.dateFormat = "dd/MM/yyyy"
+        formatador.dateFormat = "dd/MM/yyyy HH:ss"
         return formatador.string(from: date)
       }
       return nil
@@ -54,6 +54,24 @@ class ListaAnotacaoViewController: UIViewController, UITableViewDataSource, UITa
     celula.detailTextLabel?.text = data
 
     return celula
+  }
+
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    self.tableView.deselectRow(at: indexPath, animated: true)
+    let anotacao = anotacoes[ indexPath.row ]
+    self.performSegue(withIdentifier: "verAnotacao", sender: anotacao)
+
+  }
+
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+    if segue.identifier == "verAnotacao" {
+
+      let viewControllerDestino = segue.destination as! AnotacaoViewController
+      viewControllerDestino.anotacao = sender as? NSManagedObject
+
+    }
+
   }
 
   func recuperarAnotacoes() {

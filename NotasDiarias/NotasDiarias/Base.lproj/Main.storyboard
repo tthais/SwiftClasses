@@ -63,7 +63,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="zK5-b8-coR">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="LHM-QN-jaH" kind="show" id="rEV-R3-JjS"/>
+                                <segue destination="LHM-QN-jaH" kind="show" identifier="verAnotacao" id="rEV-R3-JjS"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
