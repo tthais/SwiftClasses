@@ -63,6 +63,28 @@ class ListaAnotacaoViewController: UIViewController, UITableViewDataSource, UITa
 
   }
 
+  func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+
+    if editingStyle == .delete {
+
+      let indice = indexPath.row
+      let anotacao = self.anotacoes[ indice ]
+
+      self.gerenciadorObjetos.delete(anotacao)
+      self.anotacoes.remove(at: indice)
+
+      do {
+        try gerenciadorObjetos.save()
+        self.tableView.deleteRows(at: [indexPath], with: .bottom)
+
+      } catch let erro {
+        print("Erro ao remover: \(erro.localizedDescription)")
+      }
+
+    }
+
+  }
+
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
     if segue.identifier == "verAnotacao" {
@@ -78,6 +100,9 @@ class ListaAnotacaoViewController: UIViewController, UITableViewDataSource, UITa
 
     //Recupera todas as anotações
     let requisicao = NSFetchRequest<NSFetchRequestResult>(entityName: "Anotacao")
+
+    let ordenacao = NSSortDescriptor(key: "data", ascending: true)
+    requisicao.sortDescriptors = [ordenacao]
 
     do {
 
