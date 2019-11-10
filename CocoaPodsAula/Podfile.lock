@@ -1,0 +1,29 @@
+PODS:
+  - DragDropUI (1.0.4)
+  - lottie-ios (3.1.5)
+
+DEPENDENCIES:
+  - DragDropUI (from `https://github.com/thejohnlima/DragDropUI.git`, branch `master`)
+  - lottie-ios
+
+SPEC REPOS:
+  trunk:
+    - lottie-ios
+
+EXTERNAL SOURCES:
+  DragDropUI:
+    :branch: master
+    :git: https://github.com/thejohnlima/DragDropUI.git
+
+CHECKOUT OPTIONS:
+  DragDropUI:
+    :commit: 6672b8fba601f8b0cba927b0443c039e9bfef3e9
+    :git: https://github.com/thejohnlima/DragDropUI.git
+
+SPEC CHECKSUMS:
+  DragDropUI: b415f5e9ee88f6f87249f8b16f6fec68f0449037
+  lottie-ios: 32bf84389337d86fbc8b12266e88452e0abf1dee
+
+PODFILE CHECKSUM: e90b091f969fe027109b2744a76df53046b9bbe7
+
+COCOAPODS: 1.8.4
