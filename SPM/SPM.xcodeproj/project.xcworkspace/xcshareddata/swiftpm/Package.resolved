@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "BaseNetworkKit",
+        "repositoryURL": "https://github.com/thejohnlima/BaseNetworkKit.git",
+        "state": {
+          "branch": "master",
+          "revision": "a1aa1a167aa6e7663ca7716bd5088c468a0d6b5d",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
