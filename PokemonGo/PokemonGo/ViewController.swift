@@ -13,6 +13,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 
   @IBOutlet weak var mapa: MKMapView!
   var gerenciadorLocalizacao = CLLocationManager()
+  var contador = 0
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -22,9 +23,11 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     gerenciadorLocalizacao.requestWhenInUseAuthorization()
     gerenciadorLocalizacao.startUpdatingLocation()
   }
-  //Negando autorização de Localização
+
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
+
+    //Negando autorização de Localização
     if CLLocationManager.authorizationStatus() != .authorizedWhenInUse {
       let alertcontroller = UIAlertController(title: "Permisão de localização", message: "Gostaria de ativar sua localização para caçar Pokemons?", preferredStyle: .alert)
 
@@ -38,6 +41,19 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
       alertcontroller.addAction(acaoCancelar)
 
       present(alertcontroller, animated: true)
+    }
+  }
+
+  func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    //Centraliza o usuário no mapa
+    if contador < 3 {
+      if let coordenadas = gerenciadorLocalizacao.location?.coordinate {
+        let regiao = MKCoordinateRegion(center: coordenadas, latitudinalMeters: 200, longitudinalMeters: 200)
+        mapa.setRegion(regiao, animated: true)
+      }
+      contador += 1
+    } else {
+      gerenciadorLocalizacao.stopUpdatingLocation()
     }
   }
 }
