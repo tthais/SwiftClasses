@@ -27,20 +27,37 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
 
-    //Negando autorização de Localização
-    if CLLocationManager.authorizationStatus() != .authorizedWhenInUse {
-      let alertcontroller = UIAlertController(title: "Permisão de localização", message: "Gostaria de ativar sua localização para caçar Pokemons?", preferredStyle: .alert)
+    //Exibir Pokemons
+    Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { (timer) in
 
-      let acaoConfiguracoes = UIAlertAction(title: "Ajustes", style: .default) { _ in
-        UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+      print("Exibe anotacao")
+      if let coordenadas = self.gerenciadorLocalizacao.location?.coordinate {
+        let anotacao = MKPointAnnotation()
+        let latAleatoria = (Double(arc4random_uniform(300)) - 200) / 100000.0
+        let longAleatoria = (Double(arc4random_uniform(300)) - 200) / 100000.0
+
+        anotacao.coordinate = coordenadas
+        anotacao.coordinate.latitude += latAleatoria
+        anotacao.coordinate.longitude += longAleatoria
+
+        self.mapa.addAnnotation(anotacao)
       }
 
-      let acaoCancelar = UIAlertAction(title: "Cancelar", style: .destructive)
+      //Negando autorização de Localização
+      if CLLocationManager.authorizationStatus() != .authorizedWhenInUse {
+        let alertcontroller = UIAlertController(title: "Permisão de localização", message: "Gostaria de ativar sua localização para caçar Pokemons?", preferredStyle: .alert)
 
-      alertcontroller.addAction(acaoConfiguracoes)
-      alertcontroller.addAction(acaoCancelar)
+        let acaoConfiguracoes = UIAlertAction(title: "Ajustes", style: .default) { _ in
+          UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+        }
 
-      present(alertcontroller, animated: true)
+        let acaoCancelar = UIAlertAction(title: "Cancelar", style: .destructive)
+
+        alertcontroller.addAction(acaoConfiguracoes)
+        alertcontroller.addAction(acaoCancelar)
+
+        self.present(alertcontroller, animated: true)
+      }
     }
   }
 
