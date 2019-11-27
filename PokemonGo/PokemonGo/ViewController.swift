@@ -81,4 +81,22 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
       gerenciadorLocalizacao.stopUpdatingLocation()
     }
   }
+
+  func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+
+    let anotacaoView = MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
+    
+    if annotation is MKUserLocation {
+      anotacaoView.image = #imageLiteral(resourceName: "player-1")
+    }else{
+      anotacaoView.image = #imageLiteral(resourceName: "pikachu-2")
+    }
+
+    var frame = anotacaoView.frame
+    frame.size.height = 40
+    frame.size.width = 40
+    anotacaoView.frame = frame
+
+    return anotacaoView
+  }
 }
