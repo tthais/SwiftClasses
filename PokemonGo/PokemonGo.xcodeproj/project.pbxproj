@@ -13,6 +13,8 @@
 		1B31468B237E3591004B6B33 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B314689237E3591004B6B33 /* Main.storyboard */; };
 		1B31468D237E3595004B6B33 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B31468C237E3595004B6B33 /* Assets.xcassets */; };
 		1B314690237E3595004B6B33 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B31468E237E3595004B6B33 /* LaunchScreen.storyboard */; };
+		1B734FC72390BC1C008A9C94 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1B734FC52390BC1C008A9C94 /* Model.xcdatamodeld */; };
+		1B734FC92390BE4F008A9C94 /* CoreDataPokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B734FC82390BE4F008A9C94 /* CoreDataPokemon.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		1B31468C237E3595004B6B33 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1B31468F237E3595004B6B33 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1B314691237E3595004B6B33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1B734FC62390BC1C008A9C94 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		1B734FC82390BE4F008A9C94 /* CoreDataPokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataPokemon.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,7 @@
 		1B314682237E3591004B6B33 /* PokemonGo */ = {
 			isa = PBXGroup;
 			children = (
+				1B734FC82390BE4F008A9C94 /* CoreDataPokemon.swift */,
 				1B314683237E3591004B6B33 /* AppDelegate.swift */,
 				1B314685237E3591004B6B33 /* SceneDelegate.swift */,
 				1B314687237E3591004B6B33 /* ViewController.swift */,
@@ -63,6 +68,7 @@
 				1B31468C237E3595004B6B33 /* Assets.xcassets */,
 				1B31468E237E3595004B6B33 /* LaunchScreen.storyboard */,
 				1B314691237E3595004B6B33 /* Info.plist */,
+				1B734FC52390BC1C008A9C94 /* Model.xcdatamodeld */,
 			);
 			path = PokemonGo;
 			sourceTree = "<group>";
@@ -141,6 +147,8 @@
 				1B314688237E3591004B6B33 /* ViewController.swift in Sources */,
 				1B314684237E3591004B6B33 /* AppDelegate.swift in Sources */,
 				1B314686237E3591004B6B33 /* SceneDelegate.swift in Sources */,
+				1B734FC72390BC1C008A9C94 /* Model.xcdatamodeld in Sources */,
+				1B734FC92390BE4F008A9C94 /* CoreDataPokemon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,6 +344,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1B734FC52390BC1C008A9C94 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1B734FC62390BC1C008A9C94 /* Model.xcdatamodel */,
+			);
+			currentVersion = 1B734FC62390BC1C008A9C94 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 1B314678237E3591004B6B33 /* Project object */;
 }
