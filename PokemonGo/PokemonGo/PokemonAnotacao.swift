@@ -2,7 +2,7 @@
 //  PokemonAnotacao.swift
 //  PokemonGo
 //
-//  Created by John Lima on 05/12/19.
+//  Created by Thais Costa on 05/12/19.
 //  Copyright © 2019 tthais. All rights reserved.
 //
 
