@@ -15,6 +15,7 @@
 		1B314690237E3595004B6B33 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B31468E237E3595004B6B33 /* LaunchScreen.storyboard */; };
 		1B734FC72390BC1C008A9C94 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1B734FC52390BC1C008A9C94 /* Model.xcdatamodeld */; };
 		1B734FC92390BE4F008A9C94 /* CoreDataPokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B734FC82390BE4F008A9C94 /* CoreDataPokemon.swift */; };
+		1BA3F6482398B02E00D8A1EF /* PokemonAnotacao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA3F6472398B02E00D8A1EF /* PokemonAnotacao.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		1B314691237E3595004B6B33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1B734FC62390BC1C008A9C94 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		1B734FC82390BE4F008A9C94 /* CoreDataPokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataPokemon.swift; sourceTree = "<group>"; };
+		1BA3F6472398B02E00D8A1EF /* PokemonAnotacao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonAnotacao.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				1B31468E237E3595004B6B33 /* LaunchScreen.storyboard */,
 				1B314691237E3595004B6B33 /* Info.plist */,
 				1B734FC52390BC1C008A9C94 /* Model.xcdatamodeld */,
+				1BA3F6472398B02E00D8A1EF /* PokemonAnotacao.swift */,
 			);
 			path = PokemonGo;
 			sourceTree = "<group>";
@@ -147,6 +150,7 @@
 				1B314688237E3591004B6B33 /* ViewController.swift in Sources */,
 				1B314684237E3591004B6B33 /* AppDelegate.swift in Sources */,
 				1B314686237E3591004B6B33 /* SceneDelegate.swift in Sources */,
+				1BA3F6482398B02E00D8A1EF /* PokemonAnotacao.swift in Sources */,
 				1B734FC72390BC1C008A9C94 /* Model.xcdatamodeld in Sources */,
 				1B734FC92390BE4F008A9C94 /* CoreDataPokemon.swift in Sources */,
 			);
