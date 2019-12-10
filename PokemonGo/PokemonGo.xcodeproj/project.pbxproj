@@ -66,12 +66,12 @@
 				1B314683237E3591004B6B33 /* AppDelegate.swift */,
 				1B314685237E3591004B6B33 /* SceneDelegate.swift */,
 				1B314687237E3591004B6B33 /* ViewController.swift */,
+				1BA3F6472398B02E00D8A1EF /* PokemonAnotacao.swift */,
 				1B314689237E3591004B6B33 /* Main.storyboard */,
 				1B31468C237E3595004B6B33 /* Assets.xcassets */,
 				1B31468E237E3595004B6B33 /* LaunchScreen.storyboard */,
 				1B314691237E3595004B6B33 /* Info.plist */,
 				1B734FC52390BC1C008A9C94 /* Model.xcdatamodeld */,
-				1BA3F6472398B02E00D8A1EF /* PokemonAnotacao.swift */,
 			);
 			path = PokemonGo;
 			sourceTree = "<group>";
