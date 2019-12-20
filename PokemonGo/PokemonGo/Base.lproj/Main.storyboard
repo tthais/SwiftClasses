@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -38,6 +38,7 @@
                                 <state key="normal" image="pokeball"/>
                                 <connections>
                                     <action selector="abrirPokedex:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0Cd-XS-RYH"/>
+                                    <segue destination="ddE-oe-GCj" kind="presentation" id="Oeq-qO-v4L"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -60,11 +61,62 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="722" y="120"/>
+            <point key="canvasLocation" x="393" y="133"/>
+        </scene>
+        <!--Poke Agenda View Controller-->
+        <scene sceneID="52O-cY-wHP">
+            <objects>
+                <viewController id="ddE-oe-GCj" customClass="PokeAgendaViewController" customModule="PokemonGo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KQQ-jw-2aS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1JB-at-7aI">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="dyk-n2-klb">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dyk-n2-klb" id="l1H-uY-txq">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fjf-N8-Y2Y">
+                                <rect key="frame" x="182" y="734" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="dBG-Ko-Lng"/>
+                                    <constraint firstAttribute="width" constant="50" id="u4S-8m-iwf"/>
+                                </constraints>
+                                <state key="normal" image="map"/>
+                                <connections>
+                                    <action selector="voltarMapa:" destination="ddE-oe-GCj" eventType="touchUpInside" id="YU3-aC-7os"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="1JB-at-7aI" firstAttribute="top" secondItem="haj-bv-2Ng" secondAttribute="top" id="8e9-TU-1YS"/>
+                            <constraint firstItem="haj-bv-2Ng" firstAttribute="bottom" secondItem="fjf-N8-Y2Y" secondAttribute="bottom" constant="24" id="H1L-8q-XiO"/>
+                            <constraint firstItem="haj-bv-2Ng" firstAttribute="trailing" secondItem="1JB-at-7aI" secondAttribute="trailing" id="HZR-kN-fqX"/>
+                            <constraint firstItem="1JB-at-7aI" firstAttribute="leading" secondItem="haj-bv-2Ng" secondAttribute="leading" id="YLR-7Z-GuV"/>
+                            <constraint firstItem="fjf-N8-Y2Y" firstAttribute="centerX" secondItem="KQQ-jw-2aS" secondAttribute="centerX" id="YSI-I9-1Ii"/>
+                            <constraint firstAttribute="bottom" secondItem="1JB-at-7aI" secondAttribute="bottom" id="hsP-s1-UDu"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="haj-bv-2Ng"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pdy-WP-SAy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1238" y="133"/>
         </scene>
     </scenes>
     <resources>
         <image name="compass" width="512" height="512"/>
+        <image name="map" width="512" height="512"/>
         <image name="pokeball" width="512" height="512"/>
     </resources>
 </document>

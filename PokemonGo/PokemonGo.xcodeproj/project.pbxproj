@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B1D79B223AC69C4005AD061 /* PokeAgendaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1D79B123AC69C4005AD061 /* PokeAgendaViewController.swift */; };
 		1B314684237E3591004B6B33 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B314683237E3591004B6B33 /* AppDelegate.swift */; };
 		1B314686237E3591004B6B33 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B314685237E3591004B6B33 /* SceneDelegate.swift */; };
 		1B314688237E3591004B6B33 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B314687237E3591004B6B33 /* ViewController.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B1D79B123AC69C4005AD061 /* PokeAgendaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeAgendaViewController.swift; sourceTree = "<group>"; };
 		1B314680237E3591004B6B33 /* PokemonGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokemonGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B314683237E3591004B6B33 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1B314685237E3591004B6B33 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				1B31468E237E3595004B6B33 /* LaunchScreen.storyboard */,
 				1B314691237E3595004B6B33 /* Info.plist */,
 				1B734FC52390BC1C008A9C94 /* Model.xcdatamodeld */,
+				1B1D79B123AC69C4005AD061 /* PokeAgendaViewController.swift */,
 			);
 			path = PokemonGo;
 			sourceTree = "<group>";
@@ -149,6 +152,7 @@
 			files = (
 				1B314688237E3591004B6B33 /* ViewController.swift in Sources */,
 				1B314684237E3591004B6B33 /* AppDelegate.swift in Sources */,
+				1B1D79B223AC69C4005AD061 /* PokeAgendaViewController.swift in Sources */,
 				1B314686237E3591004B6B33 /* SceneDelegate.swift in Sources */,
 				1BA3F6482398B02E00D8A1EF /* PokemonAnotacao.swift in Sources */,
 				1B734FC72390BC1C008A9C94 /* Model.xcdatamodeld in Sources */,
